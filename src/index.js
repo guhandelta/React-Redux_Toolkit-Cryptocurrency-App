@@ -1,7 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom'
 import { render } from 'react-dom';
 import App from './App';
-import { BrowserRouter as Router } from 'react-router-dom'
+import 'antd/dist/antd.css'
 
 render(
   <React.StrictMode>
