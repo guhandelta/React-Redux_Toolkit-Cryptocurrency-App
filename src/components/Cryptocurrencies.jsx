@@ -1,16 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
 import { Card, Row, Col, Input } from 'antd'
 import { useGetCryptosQuery } from '../services/cryptoApi';
 
-const Cryptocurrencies = () => {
+const Cryptocurrencies = ({ simplified }) => {
 
-    const { data: cryptoList, isFetching } = useGetCryptosQuery();
-    const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
+    const count = simplified ? 10 : 100;
+    const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
+    const [cryptos, setCryptos] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('')
+
+    // This hooks works as a
+    useEffect(() => {
+
+        // Filterout the data as per the search term
+        const filteredCoins = cryptoList?.data?.coins.filter(coin => coin.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        // Set the filtered coins to the cryptos
+        setCryptos(filteredCoins);
+    }, [cryptoList, searchTerm])
 
     return (
-        <>
+        <>  
+            <div className="search-crypto">
+                <Input placeholder="Search Crypto...." onChange={(e) => setSearchTerm(e.target.value)} />
+            </div>
             <Row gutter={[32, 32]} className="crypto-card-container">
                 {
                     cryptos.map(currency =>(

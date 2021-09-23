@@ -9,10 +9,10 @@ const { Title } = Typography;
 
 const Homepage = () => {
 
-    const { data, isFetching } = useGetCryptosQuery();
+    const { data, isFetching } = useGetCryptosQuery(10);
     const GlobalStatsData = data?.data?.stats;
 
-    // if(isFetching) return 'Loading...';
+    if(isFetching) return 'Loading...';
 
     return (
         <>
@@ -38,7 +38,7 @@ const Homepage = () => {
                 <Title level={2} className="home-Title">Top 10 Cryptocurrencies in the world</Title>
                 <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show More...</Link></Title>
             </div>
-            <Cryptocurrencies simplified />
+            <Cryptocurrencies simplified /> {/* Simplified is ture by default, unless set as simplified={false} */}
             <div className="home-heading-container">
                 <Title level={2} className="home-Title">Latest Crypto News</Title>
                 <Title level={3} className="show-more"><Link to="/news">Show More...</Link></Title>
