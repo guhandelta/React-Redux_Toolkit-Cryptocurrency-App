@@ -8,14 +8,14 @@ const cryptoApiHeaders = {
     'x-rapidapi-key': '13e2810994msh948dfb418dee1e4p1ef656jsn70c2441337be'
 }
 
-const baseURI =  'https://coinranking1.p.rapidapi.com';
+const baseUrl =  'https://coinranking1.p.rapidapi.com';
  
 // Utility fn() to add URL and the corresponding header
 const createRequest = (url) => ({ url, headers: cryptoApiHeaders })
 
 export const cryptoApi = createApi({
     reducerPath: 'cryptoApi', // What is this reducer for
-    baseQuery: fetchBaseQuery({ baseURI }),
+    baseQuery: fetchBaseQuery({ baseUrl }),
 
     // Endpoints = a fn(), where a builder is available as the 1st param, which is fn() that returns an obj, within which the names of the-
     //- endpoints can be mentioned/specified
