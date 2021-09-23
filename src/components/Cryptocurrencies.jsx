@@ -11,20 +11,26 @@ const Cryptocurrencies = ({ simplified }) => {
     const [cryptos, setCryptos] = useState([]);
     const [searchTerm, setSearchTerm] = useState('')
 
+    
     // This hooks works as a
     useEffect(() => {
-
+        
         // Filterout the data as per the search term
         const filteredCoins = cryptoList?.data?.coins.filter(coin => coin.name.toLowerCase().includes(searchTerm.toLowerCase()));
         // Set the filtered coins to the cryptos
         setCryptos(filteredCoins);
     }, [cryptoList, searchTerm])
-
+    
+    if(isFetching) return 'Loading...';
+    
     return (
         <>  
-            <div className="search-crypto">
-                <Input placeholder="Search Crypto...." onChange={(e) => setSearchTerm(e.target.value)} />
-            </div>
+            {!simplified &&(
+                
+                <div className="search-crypto">
+                    <Input placeholder="Search Crypto...." onChange={(e) => setSearchTerm(e.target.value)} />
+                </div>
+            )}
             <Row gutter={[32, 32]} className="crypto-card-container">
                 {
                     cryptos.map(currency =>(
