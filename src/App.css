@@ -39,6 +39,7 @@ a:hover{
   position: fixed;
   left: 0;
   margin: 10px;
+  margin-right: 30px;
   height: 100vh;
   margin: 0px;
   background-color: rgb(0, 21, 41);

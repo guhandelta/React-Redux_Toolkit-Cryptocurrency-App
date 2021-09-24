@@ -22,16 +22,16 @@ const Homepage = () => {
                     <Statistic value={GlobalStatsData?.total} title="Total Cryptocurrencies" />
                 </Col>
                 <Col span={12}>
-                    <Statistic value="5"/*{millify(GlobalStatsData?.totalExchanges)}*/ title="Total Exchanges" />
+                    <Statistic value={millify(GlobalStatsData?.totalExchanges)} title="Total Exchanges" />
                 </Col>
                 <Col span={12}>
-                    <Statistic value="5"/*{millify(GlobalStatsData?.totalMarketCap)}*/ title="Total Market Cap" />
+                    <Statistic value={millify(GlobalStatsData?.totalMarketCap)} title="Total Market Cap" />
                 </Col>
                 <Col span={12}>
-                    <Statistic value="5"/*{millify(GlobalStatsData?.total24hVolume)}*/ title="Total 24h Volume" />
+                    <Statistic value={millify(GlobalStatsData?.total24hVolume)} title="Total 24h Volume" />
                 </Col>
                 <Col span={12}>
-                    <Statistic value="5"/*{millify(GlobalStatsData?.totalMarkets)}*/ title="Total Markets" />
+                    <Statistic value={millify(GlobalStatsData?.totalMarkets)} title="Total Markets" />
                 </Col>
             </Row>
             <div className="home-heading-container">
