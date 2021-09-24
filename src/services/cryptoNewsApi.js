@@ -20,7 +20,7 @@ export const cryptoNewsApi = createApi({
     endpoints: (builder) => ({
         getCryptoNews: builder.query({
             // To make this request, the header should also be passed. The URL and the header are added to teh call using an utility fn() 
-            query: ({ newsCategody, count }) => createRequest(`/news/search?q=${newsCategody}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`)
+            query: ({ newsCategory, count }) => createRequest(`/news/search?q=${newsCategory}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`)
         })
     })   
 })
