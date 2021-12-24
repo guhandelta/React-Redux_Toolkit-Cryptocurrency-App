@@ -2,6 +2,8 @@ import { Switch, Route, Link } from 'react-router-dom'
 import { Layout, Typography, Space } from 'antd'
 import { Navbar } from './Components';
 
+import './App.css';
+
 function App() {
   return (
     <div className="App">
