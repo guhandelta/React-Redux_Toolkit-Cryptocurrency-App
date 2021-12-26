@@ -124,6 +124,7 @@ a:hover{
   .ant-menu{
       position: absolute;
       right: 0px;
+      background-color: #000;
   }
   .home-title{
       font-size: 1.4rem !important;
