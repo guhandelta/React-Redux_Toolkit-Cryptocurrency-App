@@ -33,9 +33,17 @@ function App() {
             </Switch>
           </div>
         </Layout>
-      </div>
-      <div className="footer">
-
+        <div className="footer">
+          <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
+              Crypto உலகம் <br />
+              All Rights Reserved
+          </Typography.Title> 
+          <Space> {/* Spacing between footer, navbar and the items */}
+            <Link to="/"></Link>
+            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/news">News</Link>
+          </Space>
+        </div>
       </div>
     </div>
   );
