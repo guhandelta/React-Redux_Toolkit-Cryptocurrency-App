@@ -1,4 +1,4 @@
-// import millify from "millify"
+import millify from "millify"
 // import { Link } from 'react-router-dom';
 import { Typography, Row, Col, Statistic } from 'antd'
 import { useGetCryptosQuery } from "../services/cryptoApi";
@@ -8,27 +8,28 @@ const { Title } = Typography;
 const Homepage = () => {
 
     const { data, isFetching } = useGetCryptosQuery();
+    const cryptoStats = data?.data?.stats;
 
-    console.log(data);
+    if(isFetching) return 'Loading...';
 
     return (
         <div>
-            <Title>Global Crpto Statistics</Title>
+            <Title>Global Crypto Statistics</Title>
             <Row>
                 <Col span={12}>
-                    <Statistic title="Total Cryptocurrencies" value="5" />
+                    <Statistic title="Total Cryptocurrencies" value={cryptoStats.total} />
                 </Col>
                 <Col span={12}>
-                    <Statistic title="Total Exchanges" value="5" />
+                    <Statistic title="Total Exchanges" value={millify(cryptoStats.totalExchanges)} />
                 </Col>
                 <Col span={12}>
-                    <Statistic title="Total Market Cap" value="5" />
+                    <Statistic title="Total Market Cap" value={millify(cryptoStats.totalMarketCap)} />
                 </Col>
                 <Col span={12}>
-                    <Statistic title="Total 24h Volume" value="5" />
+                    <Statistic title="Total 24h Volume" value={millify(cryptoStats.total24hVolume)} />
                 </Col>
                 <Col span={12}>
-                    <Statistic title="Total Markets" value="5" />
+                    <Statistic title="Total Markets" value={millify(cryptoStats.totalMarkets)} />
                 </Col>
             </Row>
         </div>
