@@ -24,7 +24,7 @@ export const cryptoApi = createApi({
     endpoints: (builder) => ({
         getCryptos: builder.query({
             // To make this request, the header should also be passed. The URL and the header are added to the call using an utility fn() 
-            query: () => createRequest(`/coins`)
+            query: (count) => createRequest(`/coins?limit=${count}`),
         }),
     })
 });
