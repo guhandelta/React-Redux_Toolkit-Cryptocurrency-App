@@ -14,8 +14,8 @@ import {
     ThunderboltOutlined,
     CheckOutlined 
 } from '@ant-design/icons'
-import LineChart from './LineChart'
-import Loader from './Loader'
+// import LineChart from './LineChart'
+// import Loader from './Loader'
 
 import { useGetCryptoDetailsQuery } from '../services/cryptoApi'
 
